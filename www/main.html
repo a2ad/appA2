@@ -1,0 +1,100 @@
+<!DOCTYPE html> 
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" />  -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <title>A2 Comunicação</title> 
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="js/scripts.js"></script>    
+    <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+</head>
+<body>
+    <!-- Blog -->
+    <div data-role="page" id="index" data-theme="a">
+        <div data-role="header" data-position="fixed" data-id="persistent" data-tap-toggle="false" data-theme="b">
+            <h1>A2 Comunicação</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#index" class="ui-btn-active ui-state-persist">Blog</a></li>
+                    <li><a href="#onde-estamos">Onde Estamos</a></li>
+                    <li><a href="#redes-sociais">Redes Sociais</a></li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview" class="posts">
+
+            </ul>
+        </div>
+        <div class="footer" data-role="footer" data-theme="b">
+            <p>info@a2comunicacao.com.br</p>
+            <p><a href="tel:+1138725565">55 (11) 3872-5565</a></p>
+        </div>
+    </div>
+    
+    <!-- Onde estamos -->
+    <div data-role="page" id="onde-estamos" data-theme="a">
+
+        <div data-role="header" data-position="fixed"  data-id="persistent" data-tap-toggle="false" data-theme="b">
+            <h1>A2 Comunicação</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#index">Blog</a></li>
+                    <li><a href="#onde-estamos" class="ui-btn-active ui-state-persist">Onde Estamos</a></li>
+                    <li><a href="#redes-sociais">Redes Sociais</a></li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="content">
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h2>Mais informações</h2>
+                <p>R. Doutor Costa Júnior, 465 - CEP 05002-000 - São Paulo - SP - Brasil</p>
+                <p><a href="tel:+1138725565">55 (11) 3872-5565</a></p>
+            </div>
+
+            <div id="map-canvas" class="map"></div>
+        </div>
+        <div class="footer" data-role="footer" data-theme="b">
+            <p>info@a2comunicacao.com.br</p>
+            <p><a href="tel:+1138725565">55 (11) 3872-5565</a></p>
+        </div>
+    </div>
+    
+    <!-- Redes -->
+    <div data-role="page" id="redes-sociais" data-theme="a">
+        <div data-role="header" data-position="fixed"  data-id="persistent" data-tap-toggle="false" data-theme="b">
+            <h1>A2 Comunicação</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#index">Blog</a></li>
+                    <li><a href="#onde-estamos">Onde Estamos</a></li>
+                    <li><a href="#redes-sociais" class="ui-btn-active ui-state-persist">Redes Sociais</a></li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview" data-inset="true" data-theme="c">
+                <li>
+                    <a rel="external" href="https://twitter.com/a2comunicacao">Twitter</a>
+                </li>
+                <li>
+                    <a rel="external" href="https://www.facebook.com/a2comunicacao">Facebook</a>
+                </li>
+                <li>
+                    <a rel="external" href="https://github.com/a2comunicacao">GitHub</a>
+                </li>
+                <li>
+                    <a rel="external" href="http://www.linkedin.com/company/a2-comunicac-o">LinkedIn</a>
+                </li>
+            </ul>                
+        </div>
+        <div class="footer" data-role="footer" data-theme="b">
+            <p>info@a2comunicacao.com.br</p>
+            <p><a href="tel:+1138725565">55 (11) 3872-5565</a></p>
+        </div>
+    </div>
+</body>
+</html>
