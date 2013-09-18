@@ -97,13 +97,13 @@ $( document ).on( "pageinit", "#index, #onde-estamos, #redes-sociais", function(
 
     if ( next ) {
         $( document ).on( "swipeleft", page, function() {
-            $.mobile.navigate( '#' + next, { transition: "slide" });
+            $.mobile.changePage( '#' + next, { transition: "slide" });
         });
     }
    
     if ( prev ) {
         $( document ).on( "swiperight", page, function() {
-            $.mobile.navigate( '#' + prev, { transition: "slide", reverse: true } );
+            $.mobile.changePage( '#' + prev, { transition: "slide", reverse: true } );
         });
       
     }
