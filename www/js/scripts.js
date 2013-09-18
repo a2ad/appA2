@@ -1,14 +1,14 @@
-$(document).on("mobileinit", function() {
-	$.mobile.loadingMessage = "carregando...";
-	$.mobile.pageLoadErrorMessage = "erro ao carregar a página";
-	$.mobile.listview.prototype.options.filterPlaceholder = "Filtrar itens...";
-	$.mobile.page.prototype.options.backBtnText = "Voltar";
-	//console.log($.mobile);
+$(document).on('mobileinit', function() {
+	$.mobile.loadingMessage = 'carregando...';
+	$.mobile.pageLoadErrorMessage = 'erro ao carregar a página';
+	$.mobile.listview.prototype.options.filterPlaceholder = 'Filtrar itens...';
+	$.mobile.page.prototype.options.backBtnText = 'Voltar';
+	$.mobile.defaultPageTransition = 'slide';
 });
 
 // Blog
 $(document).on('pagecreate', '#index', function( event ) {
-	parseRSS('http://a2comunicacao.com.br/feed/', '.posts', 10);
+	parseRSS('http://a2comunicacao.com.br/feed/', '.posts', 15);
 });
 
 // Topo
@@ -23,7 +23,8 @@ function parseRSS(url, container, quant) {
 		beforeSend: function() {
 		},
 		complete: function() {
-            $('.posts').listview('refresh');
+			$('.posts').listview('refresh');
+			$('#loading-posts').fadeOut();
 		},
 		url: 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=' + quant + '&callback=?&q=' + encodeURIComponent(url),
 		dataType: 'json',
@@ -52,7 +53,9 @@ function parseRSS(url, container, quant) {
 
 // Mapa
 $(document).on('pageinit', '#onde-estamos', function( event ) {
-    loadMap();
+	$('#map-canvas').fadeOut();
+	loadMap();
+	$('#loading-map').fadeOut();
 });
 
 // Inicialização do mapa
@@ -71,6 +74,10 @@ function initialize() {
         position: myLatlng,
         map: map
     });
+
+    var teste = google.maps.event.addListenerOnce(map, 'idle', function(){
+		$('#map-canvas').fadeIn();
+	});
 }
  
 // Load do Mapa
@@ -81,3 +88,23 @@ function loadMap() {
     'callback=initialize';
     document.body.appendChild(script);   
 }
+
+// Swipe
+$( document ).on( "pageinit", "#index, #onde-estamos, #redes-sociais", function() {
+    var page = "#" + $( this ).attr( "id" ),
+        next = $( this ).jqmData( "next" ),
+        prev = $( this ).jqmData( "prev" );
+
+    if ( next ) {
+        $( document ).on( "swipeleft", page, function() {
+            $.mobile.navigate( '#' + next, { transition: "slide" });
+        });
+    }
+   
+    if ( prev ) {
+        $( document ).on( "swiperight", page, function() {
+            $.mobile.navigate( '#' + prev, { transition: "slide", reverse: true } );
+        });
+      
+    }
+});

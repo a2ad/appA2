@@ -2,18 +2,17 @@
 <html lang="pt-br">
 <head>
     <meta charset="utf-8" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" />  -->
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <title>A2 Comunicação</title> 
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css" />
     <link rel="stylesheet" href="css/style.css">
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/scripts.js"></script>    
-    <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+    <script src="js/jquery.mobile-1.3.2.min.js"></script>
 </head>
 <body>
     <!-- Blog -->
-    <div data-role="page" id="index" data-theme="a">
+    <div data-role="page" data-dom-cache="true" id="index" data-theme="a" data-next="onde-estamos">
         <div data-role="header" data-position="fixed" data-id="persistent" data-tap-toggle="false" data-theme="b">
             <h1>A2 Comunicação</h1>
             <div data-role="navbar">
@@ -26,51 +25,52 @@
         </div>
         <div data-role="content">
             <ul data-role="listview" class="posts">
-
+                <div id="loading-posts" class="loading">Carregando os posts do #BlogA2</div>
             </ul>
         </div>
         <div class="footer" data-role="footer" data-theme="b">
-            <p>info@a2comunicacao.com.br</p>
-            <p><a href="tel:+1138725565">55 (11) 3872-5565</a></p>
+            <img src="img/a2comunicacao.png">
         </div>
     </div>
     
     <!-- Onde estamos -->
-    <div data-role="page" id="onde-estamos" data-theme="a">
+    <div data-role="page" data-dom-cache="true" id="onde-estamos" data-theme="a" data-prev="index" data-next="redes-sociais">
 
         <div data-role="header" data-position="fixed"  data-id="persistent" data-tap-toggle="false" data-theme="b">
             <h1>A2 Comunicação</h1>
             <div data-role="navbar">
                 <ul>
-                    <li><a href="#index">Blog</a></li>
+                    <li><a href="#index" data-direction="reverse">Blog</a></li>
                     <li><a href="#onde-estamos" class="ui-btn-active ui-state-persist">Onde Estamos</a></li>
                     <li><a href="#redes-sociais">Redes Sociais</a></li>
                 </ul>
             </div>
         </div>
-        <div data-role="content">
+        <div data-role="content" class="map-content">
             <div data-role="collapsible" data-theme="b" data-content-theme="d">
                 <h2>Mais informações</h2>
-                <p>R. Doutor Costa Júnior, 465 - CEP 05002-000 - São Paulo - SP - Brasil</p>
+                <p><a href="http://www.a2comunicacao.com.br">a2comunicacao.com.br</a></p>
                 <p><a href="tel:+1138725565">55 (11) 3872-5565</a></p>
+                <p>info@a2comunicacao.com.br</p>
+                <p>R. Doutor Costa Júnior, 465 - CEP 05002-000 - São Paulo - SP - Brasil</p>                
             </div>
-
+            
+            <div id="loading-map" class="loading">Localizando a A2 Comunicação no Google Maps</div>
             <div id="map-canvas" class="map"></div>
         </div>
         <div class="footer" data-role="footer" data-theme="b">
-            <p>info@a2comunicacao.com.br</p>
-            <p><a href="tel:+1138725565">55 (11) 3872-5565</a></p>
+            <img src="img/a2comunicacao.png">
         </div>
     </div>
     
     <!-- Redes -->
-    <div data-role="page" id="redes-sociais" data-theme="a">
+    <div data-role="page" data-dom-cache="true" id="redes-sociais" data-theme="a" data-prev="onde-estamos">
         <div data-role="header" data-position="fixed"  data-id="persistent" data-tap-toggle="false" data-theme="b">
             <h1>A2 Comunicação</h1>
             <div data-role="navbar">
                 <ul>
-                    <li><a href="#index">Blog</a></li>
-                    <li><a href="#onde-estamos">Onde Estamos</a></li>
+                    <li><a href="#index" data-direction="reverse">Blog</a></li>
+                    <li><a href="#onde-estamos" data-direction="reverse">Onde Estamos</a></li>
                     <li><a href="#redes-sociais" class="ui-btn-active ui-state-persist">Redes Sociais</a></li>
                 </ul>
             </div>
@@ -92,8 +92,7 @@
             </ul>                
         </div>
         <div class="footer" data-role="footer" data-theme="b">
-            <p>info@a2comunicacao.com.br</p>
-            <p><a href="tel:+1138725565">55 (11) 3872-5565</a></p>
+            <img src="img/a2comunicacao.png">
         </div>
     </div>
 </body>

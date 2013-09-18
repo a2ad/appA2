@@ -1,3 +1,10 @@
+.ui-header .ui-title {
+	font-size: 32px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	letter-spacing: -1px;
+}
+
 .footer small {
    display: block;
    padding: 5px 0;
@@ -14,6 +21,24 @@
 	height: auto;
 }
 
-.footer p {
+.footer { text-align: center; }
+.footer img {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.posts,
+.map-content {
+	min-height: 125px;
+}
+
+.loading {
+	position: absolute;
+	background: transparent url(images/ajax-loader.gif) no-repeat center top;
+	width: 100%;
 	text-align: center;
+	color: #fff;
+	font-size: 12px;
+	padding-top: 60px;
+	margin: 15px 0;
 }
