@@ -24,12 +24,10 @@ function parseRSS(url, container, quant) {
 		},
 		complete: function() {
 			$('.posts').listview('refresh');
-			$('#loading-posts').fadeOut();
 		},
 		url: 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=' + quant + '&callback=?&q=' + encodeURIComponent(url),
 		dataType: 'json',
 		success: function(data) {
-			//console.log(data.responseData.feed);
 			var id = 1;
 			$.each(data.responseData.feed.entries, function(key, value){
 				var date = new Date(value.publishedDate);
@@ -55,7 +53,6 @@ function parseRSS(url, container, quant) {
 $(document).on('pageinit', '#onde-estamos', function( event ) {
 	$('#map-canvas').fadeOut();
 	loadMap();
-	$('#loading-map').fadeOut();
 });
 
 // Inicialização do mapa
