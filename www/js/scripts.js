@@ -5,7 +5,6 @@ $(document).on('mobileinit', function() {
 	$.mobile.page.prototype.options.backBtnText = 'Voltar';
 	$.mobile.defaultPageTransition   = 'none'
 	$.mobile.defaultDialogTransition = 'none'
-	$.mobile.buttonMarkup.hoverDelay = 0;
 });
 
 
@@ -92,13 +91,13 @@ $( document ).on( "pageinit", "#index, #onde-estamos, #redes-sociais", function(
 
     if ( next ) {
         $( document ).on( "swipeleft", page, function() {
-            $.mobile.changePage( '#' + next, { transition: "slide" });
+            $.mobile.changePage( '#' + next, { transition: "none" });
         });
     }
    
     if ( prev ) {
         $( document ).on( "swiperight", page, function() {
-            $.mobile.changePage( '#' + prev, { transition: "slide", reverse: true } );
+            $.mobile.changePage( '#' + prev, { transition: "none" } );
         });
       
     }
