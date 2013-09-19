@@ -3,7 +3,9 @@ $(document).on('mobileinit', function() {
 	$.mobile.pageLoadErrorMessage = 'erro ao carregar a página';
 	$.mobile.listview.prototype.options.filterPlaceholder = 'Filtrar itens...';
 	$.mobile.page.prototype.options.backBtnText = 'Voltar';
-	$.mobile.defaultPageTransition = 'slide';
+	$.mobile.defaultPageTransition   = 'none'
+	$.mobile.defaultDialogTransition = 'none'
+	$.mobile.buttonMarkup.hoverDelay = 0;
 });
 
 
