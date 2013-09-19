@@ -6,17 +6,22 @@ $(document).on('mobileinit', function() {
 	$.mobile.defaultPageTransition = 'slide';
 });
 
+
 // Blog
+
 $(document).on('pagecreate', '#index', function( event ) {
 	parseRSS('http://a2comunicacao.com.br/feed/', '.posts', 15);
 });
 
 // Topo
+
 function goTop() {
 	$('.top').on('tap', function(event){
 		$('html, body').animate({scrollTop:0}, 'fast');
 	});
 }
+
+// Posts Blog
 
 function parseRSS(url, container, quant) {
 	$.ajax({
@@ -50,43 +55,34 @@ function parseRSS(url, container, quant) {
 }
 
 // Mapa
+
+$(document).on('pageshow', '#onde-estamos', function( event ) {
+	$('#map-canvas').gmap('refresh');
+});
+
 $(document).on('pageinit', '#onde-estamos', function( event ) {
-	$('#map-canvas').fadeOut();
 	loadMap();
 });
 
-// Inicialização do mapa
-function initialize() {
-    var myLatlng = new google.maps.LatLng(-23.530038, -46.673508);   
-    var mapOptions = {
-        zoom: 16,
-        center: myLatlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
- 
-    var map = new google.maps.Map(document.getElementById('map-canvas'),
-        mapOptions);
- 
-    var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map
-    });
 
-    var teste = google.maps.event.addListenerOnce(map, 'idle', function(){
-		$('#map-canvas').fadeIn();
-	});
-}
- 
-// Load do Mapa
 function loadMap() {
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
-    'callback=initialize';
-    document.body.appendChild(script);   
+	var mapLocation = '-23.530038, -46.673508';
+	$('#map-canvas').gmap({
+		'center': mapLocation,
+		'zoom': 16,
+		'callback': function() {
+			var self = this;
+			self.addMarker({
+				'position': this.get('map').getCenter()
+			}).click(function() {
+				self.openInfoWindow({ 'content': 'Estamos aqui!' }, this);
+			});	
+		}
+	});
 }
 
 // Swipe
+
 $( document ).on( "pageinit", "#index, #onde-estamos, #redes-sociais", function() {
     var page = "#" + $( this ).attr( "id" ),
         next = $( this ).jqmData( "next" ),
